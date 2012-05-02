@@ -8,8 +8,8 @@ typedef struct nodo{
     struct nodo *siguiente;
 }Nodo;
 
-Nodo* crearNodo(int sd, char nombre[25], Nodo* ptr){
-	Nodo* nuevo;
+Nodo* crearNodo(int sd, char nombre[25], Nodo *ptr){
+	Nodo *nuevo;
 	nuevo = (Nodo*)malloc(sizeof(Nodo));
     nuevo->sd = sd;
     strcpy(nuevo->nombre,nombre);
@@ -22,11 +22,17 @@ int main(int argc, char **argv)
     Nodo *head;
     head = NULL;
     head = crearNodo(12,"gustavo",head);
+    head = crearNodo(14,"maria",head);
+    head = crearNodo(16,"pedro",head);
+    head = crearNodo(15,"gabriel",head);
     
     //recorrer pila
     Nodo* ptr;
     ptr = head;
-    printf("sd:[%d] nombre:[%s] \n", ptr->sd, ptr->nombre);
-
+    while (ptr != NULL){
+	    printf("sd:[%d] nombre:[%s] \n", ptr->sd, ptr->nombre);
+	    ptr = ptr->siguiente;
+    } 	
+    
     return 0;
 }
